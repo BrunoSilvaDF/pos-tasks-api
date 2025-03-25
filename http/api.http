@@ -1,0 +1,42 @@
+
+
+###
+POST http://localhost:3000/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "João Silva",
+  "email": "joao@exemplo.com",
+  "password": "senha123"
+}
+
+###
+
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbThubnc4bW4wMDAwcW0wMTJhOTk4OWJrIiwiaWF0IjoxNzQyODU2NzI2LCJleHAiOjE3NDM0NjE1MjZ9.-Qm8aL8yGnEsGTDKtD-odYOOQRwbuwaOEUgBZEUIHBA
+
+###
+
+GET http://localhost:3000
+
+###
+
+GET http://localhost:3000/api/tasks
+Authorization: Bearer {{token}}
+
+###
+
+GET http://localhost:3000/api/tasks?status=EM_ANDAMENTO&priority=ALTA
+Authorization: Bearer {{token}}
+
+###
+
+POST http://localhost:3000/api/tasks
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "title": "Implementar API REST",
+  "description": "Criar endpoints para gerenciamento de tarefas",
+  "priority": "ALTA",
+  "status": "EM_ANDAMENTO"
+}
