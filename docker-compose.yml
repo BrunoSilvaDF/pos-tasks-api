@@ -6,7 +6,7 @@ services:
     #   context: .
     #   dockerfile: Dockerfile
     image: brunoosilva/tasks-api
-    container_name: task-api
+    container_name: tasks-api
     restart: always
     ports:
       - "3000:3000"
@@ -17,11 +17,11 @@ services:
       - DATABASE_URL=mysql://user:password@mysql:3306/task_management
       - JWT_SECRET=seu_jwt_secret_seguro
     networks:
-      - task-network
+      - tasks-network
 
   mysql:
     image: mysql:8.0
-    container_name: task-mysql
+    container_name: tasks-mysql
     restart: always
     ports:
       - "3306:3306"
@@ -33,22 +33,22 @@ services:
     volumes:
       - mysql-data:/var/lib/mysql
     networks:
-      - task-network
+      - tasks-network
     command: --default-authentication-plugin=mysql_native_password
 
   adminer:
     image: adminer
-    container_name: task-adminer
+    container_name: tasks-adminer
     restart: always
     ports:
       - "8081:8080"
     depends_on:
       - mysql
     networks:
-      - task-network
+      - tasks-network
 
 networks:
-  task-network:
+  tasks-network:
     driver: bridge
 
 volumes:
