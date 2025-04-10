@@ -16,6 +16,7 @@ Api para fins educativos.
            - "4050:3000"
      # (...)
      ```
+5. A documentação da API estará disponível em http://localhost:3000/api-docs
 
 # Tecnologias utilizadas:
 
