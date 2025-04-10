@@ -16,3 +16,13 @@ Api para fins educativos.
            - "4050:3000"
      # (...)
      ```
+
+# Tecnologias utilizadas:
+
+* Express
+* JWT
+* Swagger
+* Prisma
+* Zod
+* Bcrypt
+* MySQL
