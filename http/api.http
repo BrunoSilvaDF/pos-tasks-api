@@ -1,26 +1,26 @@
 
 
 ###
-POST http://localhost:3000/api/auth/register
+POST http://localhost:4000/api/auth/register
 Content-Type: application/json
 
 {
   "name": "João Silva",
-  "email": "joao@exemplo.com",
+  "email": "jorge@exemplo.com",
   "password": "senha123"
 }
 
 ###
 
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbThyaGZ1anEwMDAwczUwMTNhZTJycDJkIiwiaWF0IjoxNzQzMDg3NzQ4LCJleHAiOjE3NDM2OTI1NDh9.0B1d0tv73yUJOBRZ_W0urRSavDYnkcVHG9SVOjfSBH0
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbTllNWUxODgwMDAwb2YwMXBuaWM1NzRoIiwiaWF0IjoxNzQ0NDU4MjMwLCJleHAiOjE3NDUwNjMwMzB9.6RQ5HOqPh9emYaIOULRrFdDRYMfJeBIVEOR9dnPCOjA
 
 ###
 
-GET http://localhost:3000
+GET http://localhost:4000
 
 ###
 
-GET http://localhost:3000/api/tasks
+GET http://localhost:4000/api/tasks
 Authorization: Bearer {{token}}
 
 ###
