@@ -1,3 +1,4 @@
+import { PrismaClient } from "@prisma/client";
 import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
@@ -37,8 +38,17 @@ app.get("/", (req, res) => {
   });
 });
 
-// Iniciar servidor
-app.listen(PORT, () => {
-  console.log(`Servidor rodando na porta ${PORT}`);
-  console.log(`Documentação disponível em: http://localhost:${PORT}/api-docs`);
+const prisma = new PrismaClient();
+prisma.$connect().then(() => {
+  console.log("Conectado ao banco de dados");
+  app.emit("db:ready");
+});
+
+app.on("db:ready", () => {
+  app.listen(PORT, () => {
+    console.log(`Servidor rodando na porta ${PORT}`);
+    console.log(
+      `Documentação disponível em: http://localhost:${PORT}/api-docs`
+    );
+  });
 });
